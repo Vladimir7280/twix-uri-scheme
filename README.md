@@ -24,7 +24,7 @@ This is a PoC to validate the proposed [NIP2 Transaction URI Scheme](https://git
 ```ts
 // examples/TransactionToURI.ts
 
-import { Account, Deadline, EmptyMessage, Currency, NetworkType, TransferTransaction, TransactionMapping } from 'symbol-sdk';
+import { Account, Deadline, EmptyMessage, Currency, NetworkType, TransferTransaction, TransactionMapping } from 'twix-sdk';
 
 import { TransactionURI } from '../src/uris/TransactionURI';
 
@@ -51,7 +51,7 @@ console.log(transactionURI.build());
 ```ts
 // examples/URIToTransaction.ts
 
-import { TransactionMapping } from 'symbol-sdk';
+import { TransactionMapping } from 'twix-sdk';
 import { TransactionURI } from '../src/uris/TransactionURI';
 
 const serializedTransaction = 'B600000000000000000000000000000000000000000' +
@@ -61,7 +61,7 @@ const serializedTransaction = 'B600000000000000000000000000000000000000000' +
 'A45AEA2EE9B880D5E4F9B91B75857F444F1766CDCB0600010000000000CC403C7A113BDF7' +
 'C80969800000000000068656C6C6F';
 
-const URI = 'web+symbol://transaction?data=' + serializedTransaction + '&generationHash=test' +
+const URI = 'web+twix://transaction?data=' + serializedTransaction + '&generationHash=test' +
     '&nodeUrl=http://localhost:3000&webhookUrl=http://myapp.local/id';
 const transactionURI = TransactionURI.fromURI(URI, TransactionMapping.createFromPayload);
 

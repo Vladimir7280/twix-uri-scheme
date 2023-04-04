@@ -1,4 +1,4 @@
-import { Account, Deadline, EmptyMessage, Currency, NetworkType, TransferTransaction, TransactionMapping } from 'symbol-sdk';
+import { Account, Deadline, EmptyMessage, Currency, NetworkType, TransferTransaction, TransactionMapping } from 'twix-sdk';
 
 import { TransactionURI } from '../src/uris/TransactionURI';
 

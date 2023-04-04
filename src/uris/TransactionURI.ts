@@ -20,7 +20,7 @@ import {ITransactionMapper} from './ITransactionMapper';
 
 export class TransactionURI<T> implements IURIScheme<T> {
 
-    public static readonly PROTOCOL: string = 'web+symbol://';
+    public static readonly PROTOCOL: string = 'web+twix://';
     public static readonly ACTION: string = 'transaction';
 
     /**

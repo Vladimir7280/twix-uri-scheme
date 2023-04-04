@@ -25,7 +25,7 @@ import { Account,
          PlainMessage,
          TransactionMapping,
          TransferTransaction,
-         UInt64 } from 'symbol-sdk';
+         UInt64 } from 'twix-sdk';
 
 import { TransactionURI } from '../index';
 
@@ -56,7 +56,7 @@ describe('TransactionURI should', () => {
         '0000000000000000000000000000198544100000000000000003BC6450C7E010000983227' +
         '106BECAC8228ED2A598A8913E207EFB19F31869ECB0600010000000000CC403C7A113BDF7' +
         'C80969800000000000068656C6C6F';
-        const URI = 'web+symbol://transaction?data=' + serializedTransaction + '&generationHash=test' +
+        const URI = 'web+twix://transaction?data=' + serializedTransaction + '&generationHash=test' +
             '&nodeUrl=http://localhost:3000';
         const transactionURI = TransactionURI.fromURI(URI, TransactionMapping.createFromPayload);
         transactionURI.toTransaction();
@@ -70,7 +70,7 @@ describe('TransactionURI should', () => {
         '0000000000000000000000000000198544100000000000000003BC6450C7E010000983227' +
         '106BECAC8228ED2A598A8913E207EFB19F31869ECB0600010000000000CC403C7A113BDF7' +
         'C80969800000000000068656C6C6F';
-        const URI = 'web+symbol://transaction?data=' + serializedTransaction +
+        const URI = 'web+twix://transaction?data=' + serializedTransaction +
             '&webhookUrl=http://someexternalserver.com/webhookUrl';
         const transactionURI = TransactionURI.fromURI(URI, TransactionMapping.createFromPayload);
         transactionURI.toTransaction();
@@ -79,7 +79,7 @@ describe('TransactionURI should', () => {
 
     it('not be created from URI when data param is missing', () => {
         expect(() => {
-            TransactionURI.fromURI('web+symbol://transaction?chain_id=test', TransactionMapping.createFromPayload);
+            TransactionURI.fromURI('web+twix://transaction?chain_id=test', TransactionMapping.createFromPayload);
         }).to.throw('Invalid URI: data parameter missing');
     });
 
@@ -91,7 +91,7 @@ describe('TransactionURI should', () => {
             PlainMessage.create('hello'),
             NetworkType.TEST_NET).serialize();
         const transactionURI = new TransactionURI(serialized, TransactionMapping.createFromPayload);
-        expect(transactionURI.build()).to.deep.equal('web+symbol://transaction?data=' + serialized);
+        expect(transactionURI.build()).to.deep.equal('web+twix://transaction?data=' + serialized);
     });
 
     it('create a transaction', () => {
